@@ -19,8 +19,8 @@ def decrement():
 
 
 def display():
-    global X
-    print('Value of x: {}'.format(X))
+    global main_menu
+    main_menu.header = 'Value of x: {}'.format(X)
 
 
 # Initialize an empty Menu
