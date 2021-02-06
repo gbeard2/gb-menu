@@ -19,32 +19,32 @@ def decrement():
 
 
 def display():
-    global MAIN_MENU
+    global main_menu
     main_menu.header = 'Value of x: {}'.format(X)
 
 
 # Initialize an empty Menu
-MAIN_MENU = gb_menu.Menu()
+main_menu = gb_menu.Menu()
 
 # Create an Action which calls the increment function
 up_action = gb_menu.Action(function=increment)
 # Create a Choice for an input of '1' with the behavior of the above action
 up_choice = gb_menu.Choice(key='1', text='X + 1', action=up_action)
 # Add the Choice to the Menu
-MAIN_MENU.add_choice(up_choice)
+main_menu.add_choice(up_choice)
 
 down_action = gb_menu.Action(function=decrement)
 down_choice = gb_menu.Choice(key='2', text='X - 1', action=down_action)
-MAIN_MENU.add_choice(down_choice)
+main_menu.add_choice(down_choice)
 
 quit_action = gb_menu.Action(function=sys.exit)
 quit_choice = gb_menu.Choice(key='q', text='Quit', action=quit_action)
-MAIN_MENU.add_choice(quit_choice)
+main_menu.add_choice(quit_choice)
 
 # Create an Action to allow the Menu to display the value of X
 disp_action = gb_menu.Action(function=display)
-MAIN_MENU.on_show = disp_action
+main_menu.on_show = disp_action
 
 while True:
-    MAIN_MENU.show()
+    main_menu.show()
     print('')
