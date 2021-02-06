@@ -1,6 +1,6 @@
 #
 # This file is subject to the terms and conditions defined in
-# file 'LICENSE.txt', which is part of this source code package.
+# file 'LICENSE', which is part of this source code package.
 #
 class Action:
     def __init__(self, function, args=None):
@@ -22,12 +22,14 @@ class Choice:
 
 
 class Menu:
-    def __init__(self, header=None, choices=None, on_show=None, key_sep=': ', input_text='Choice: '):
+    def __init__(self, header=None, choices=None, on_show=None, on_invalid_choice=None, key_sep=': ', input_text='Choice: ', invalid_choice_text='Invalid input.'):
         self.header = header
         self.choices = choices
         self.on_show = on_show
+        self.on_invalid_choice = on_invalid_choice
         self.key_sep = key_sep
         self.input_text = input_text
+        self.invalid_choice_text = invalid_choice_text
 
     def add_choice(self, choice):
         if self.choices is None:
@@ -52,4 +54,9 @@ class Menu:
                 print('{}{}{}'.format(choice.key, self.key_sep, choice.text))
 
         sel = input(self.input_text)
-        self.choices[sel].execute()
+        try:
+            self.choices[sel].execute()
+        except KeyError:
+            print(self.invalid_choice_text)
+            if self.on_invalid_choice is not None:
+                self.on_invalid_choice.function(**self.on_show.args)

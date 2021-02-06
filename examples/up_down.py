@@ -1,6 +1,6 @@
 #
 # This file is subject to the terms and conditions defined in
-# file 'LICENSE.txt', which is part of this source code package.
+# file 'LICENSE', which is part of this source code package.
 #
 import og_menu
 import sys
@@ -47,3 +47,4 @@ main_menu.on_show = disp_action
 
 while True:
     main_menu.show()
+    print('')
