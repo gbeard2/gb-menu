@@ -4,7 +4,7 @@
 #
 import gb_menu
 import sys
-import mock
+import unittest.mock
 
 MAIN_MENU = gb_menu.Menu()
 UP_ACTION = None
@@ -47,7 +47,7 @@ def test_add_choice():
     MAIN_MENU.add_choice(UP_CHOICE)
     MAIN_MENU.add_choice(DOWN_CHOICE)
     MAIN_MENU.add_choice(QUIT_CHOICE)
-    assert all(c in MAIN_MENU.choices for c in [UP_CHOICE, DOWN_CHOICE, QUIT_CHOICE])
+    assert all(c in MAIN_MENU.choices.values() for c in [UP_CHOICE, DOWN_CHOICE, QUIT_CHOICE])
 
 
 def test_remove_choice():
@@ -59,13 +59,13 @@ def test_remove_choice():
 
 def test_increment():
     global MAIN_MENU
-    with mock.patch(__builtins__, 'input', lambda: '1'):
+    with unittest.mock.patch.object(__builtins__, 'input', lambda: '2'):
         MAIN_MENU.show()
         assert X == 1
 
 
 def test_decrement():
     global MAIN_MENU
-    with mock.patch(__builtins__, 'input', lambda: '2'):
+    with unittest.mock.patch.object(__builtins__, 'input', lambda: '2'):
         MAIN_MENU.show()
         assert X == 0
