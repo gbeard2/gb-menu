@@ -1,15 +1,15 @@
 <h1 align="center">Welcome to gb-menu 👋</h1>
 <p>
-  <a href=https://pypi.org/project/gb-menu" target="_blank">
+  <a href=https://pypi.org/project/gb-menu target="_blank">
     <img alt="Python Versions" src="https://img.shields.io/pypi/pyversions/gb-menu">
   </a>
   <a href=https://github.com/gbeard2/gb-menu target="_blank">
     <img alt="Release" src="https://img.shields.io/github/v/release/gbeard2/gb-menu">
   </a>
-  <a href=https://pypi.org/project/gb-menu" target="_blank">
+  <a href=https://pypi.org/project/gb-menu target="_blank">
     <img alt="Downloads" src="https://img.shields.io/pypi/dm/gb-menu">
   </a>
-  <a href="https://github.com/gbeard2/gb-menu/commits" target="_blank">
+  <a href=https://github.com/gbeard2/gb-menu/commits target="_blank">
     <img alt="Weekly Commits" src="https://img.shields.io/github/commit-activity/w/gbeard2/gb-menu" />
   </a>
 </p>
