@@ -2,9 +2,10 @@
 # This file is subject to the terms and conditions defined in
 # file 'LICENSE', which is part of this source code package.
 #
-import gb_menu
 import sys
 import mock
+if 'gb_menu' not in sys.modules:
+    import gb_menu
 
 MAIN_MENU = gb_menu.Menu()
 UP_ACTION = None
