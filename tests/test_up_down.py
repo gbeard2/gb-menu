@@ -59,13 +59,13 @@ def test_remove_choice():
 
 def test_increment():
     global MAIN_MENU
-    with unittest.mock.patch.object(__builtins__, 'input', lambda: '2'):
+    with unittest.mock.patch('builtins.input', return_value='1'):
         MAIN_MENU.show()
         assert X == 1
 
 
 def test_decrement():
     global MAIN_MENU
-    with unittest.mock.patch.object(__builtins__, 'input', lambda: '2'):
+    with unittest.mock.patch('builtins.input', return_value='2'):
         MAIN_MENU.show()
         assert X == 0
