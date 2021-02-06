@@ -2,11 +2,11 @@
 # This file is subject to the terms and conditions defined in
 # file 'LICENSE', which is part of this source code package.
 #
-import gb_menu
+from gb_menu import menu, choice, action
 import sys
 import unittest.mock
 
-MAIN_MENU = gb_menu.Menu()
+MAIN_MENU = menu.Menu()
 UP_ACTION = None
 UP_CHOICE = None
 DOWN_ACTION = None
@@ -28,17 +28,17 @@ def decrement():
 
 def test_create_action():
     global UP_ACTION, DOWN_ACTION, QUIT_ACTION
-    UP_ACTION = gb_menu.Action(function=increment)
-    DOWN_ACTION = gb_menu.Action(function=decrement)
-    QUIT_ACTION = gb_menu.Action(function=sys.exit)
+    UP_ACTION = action.Action(function=increment)
+    DOWN_ACTION = action.Action(function=decrement)
+    QUIT_ACTION = action.Action(function=sys.exit)
     assert UP_ACTION.function == increment and DOWN_ACTION.function == decrement and QUIT_ACTION.function == sys.exit
 
 
 def test_create_choice():
     global UP_CHOICE, DOWN_CHOICE, QUIT_CHOICE
-    UP_CHOICE = gb_menu.Choice(key='1', text='X + 1', action=UP_ACTION)
-    DOWN_CHOICE = gb_menu.Choice(key='2', text='X - 1', action=DOWN_ACTION)
-    QUIT_CHOICE = gb_menu.Choice(key='q', text='Quit', action=QUIT_ACTION)
+    UP_CHOICE = choice.Choice(key='1', text='X + 1', action=UP_ACTION)
+    DOWN_CHOICE = choice.Choice(key='2', text='X - 1', action=DOWN_ACTION)
+    QUIT_CHOICE = choice.Choice(key='q', text='Quit', action=QUIT_ACTION)
     assert UP_CHOICE.text == 'X + 1' and DOWN_CHOICE.text == 'X - 1' and QUIT_CHOICE.text == 'Quit'
 
 

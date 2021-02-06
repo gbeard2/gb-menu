@@ -2,7 +2,7 @@
 # This file is subject to the terms and conditions defined in
 # file 'LICENSE', which is part of this source code package.
 #
-import gb_menu
+from gb_menu import menu, choice, action
 import sys
 
 X = 0
@@ -24,25 +24,25 @@ def display():
 
 
 # Initialize an empty Menu
-main_menu = gb_menu.Menu()
+main_menu = menu.Menu()
 
 # Create an Action which calls the increment function
-up_action = gb_menu.Action(function=increment)
+up_action = action.Action(function=increment)
 # Create a Choice for an input of '1' with the behavior of the above action
-up_choice = gb_menu.Choice(key='1', text='X + 1', action=up_action)
+up_choice = choice.Choice(key='1', text='X + 1', action=up_action)
 # Add the Choice to the Menu
 main_menu.add_choice(up_choice)
 
-down_action = gb_menu.Action(function=decrement)
-down_choice = gb_menu.Choice(key='2', text='X - 1', action=down_action)
+down_action = action.Action(function=decrement)
+down_choice = choice.Choice(key='2', text='X - 1', action=down_action)
 main_menu.add_choice(down_choice)
 
-quit_action = gb_menu.Action(function=sys.exit)
-quit_choice = gb_menu.Choice(key='q', text='Quit', action=quit_action)
+quit_action = action.Action(function=sys.exit)
+quit_choice = choice.Choice(key='q', text='Quit', action=quit_action)
 main_menu.add_choice(quit_choice)
 
 # Create an Action to allow the Menu to display the value of X
-disp_action = gb_menu.Action(function=display)
+disp_action = action.Action(function=display)
 main_menu.on_show = disp_action
 
 while True:

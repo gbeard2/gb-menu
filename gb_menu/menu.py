@@ -2,25 +2,6 @@
 # This file is subject to the terms and conditions defined in
 # file 'LICENSE', which is part of this source code package.
 #
-class Action:
-    def __init__(self, function, args=None):
-        if args is None:
-            args = dict()
-
-        self.function = function
-        self.args = args
-
-
-class Choice:
-    def __init__(self, key, text, action=None):
-        self.key = key
-        self.text = text
-        self.action = action
-
-    def execute(self):
-        self.action.function(**self.action.args)
-
-
 class Menu:
     def __init__(self, header=None, choices=None, on_show=None, on_invalid_choice=None, key_sep=': ', input_text='Choice: ', invalid_choice_text='Invalid input.'):
         self.header = header
