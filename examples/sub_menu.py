@@ -150,8 +150,7 @@ toggle_seconds_action = action.Action(function=toggle_seconds)
 toggle_seconds_choice = choice.Choice(key='7', text='Toggle seconds [{}]'.format(SHOW_SECONDS), action=toggle_seconds_action)
 util_menu.add_choice(toggle_seconds_choice)
 
-cancel_action = action.Action()
-cancel_choice = choice.Choice(key='8', text='Cancel', action=cancel_action)
+cancel_choice = choice.Choice(key='8', text='Cancel')
 util_menu.add_choice(cancel_choice)
 
 update_choices_action = action.Action(function=update_choices)
