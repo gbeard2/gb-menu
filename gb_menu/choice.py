@@ -9,4 +9,6 @@ class Choice:
         self.action = action
 
     def execute(self):
-        self.action.function(**self.action.args)
+        if self.action is not None:
+            if self.action.function is not None:
+                self.action.function(**self.action.args)

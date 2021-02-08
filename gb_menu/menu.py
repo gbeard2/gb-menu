@@ -23,7 +23,8 @@ class Menu:
 
     def show(self):
         if self.on_show is not None:
-            self.on_show.function(**self.on_show.args)
+            if self.on_show.function is not None:
+                self.on_show.function(**self.on_show.args)
 
         if self.header is not None:
             print(self.header)
@@ -40,4 +41,5 @@ class Menu:
         except KeyError:
             print(self.invalid_choice_text)
             if self.on_invalid_choice is not None:
-                self.on_invalid_choice.function(**self.on_show.args)
+                if self.on_invalid_choice.function is not None:
+                    self.on_invalid_choice.function(**self.on_show.args)

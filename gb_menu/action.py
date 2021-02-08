@@ -3,7 +3,7 @@
 # file 'LICENSE', which is part of this source code package.
 #
 class Action:
-    def __init__(self, function, args=None):
+    def __init__(self, function=None, args=None):
         if args is None:
             args = dict()
 

@@ -1,3 +1,7 @@
+#
+# This file is subject to the terms and conditions defined in
+# file 'LICENSE', which is part of this source code package.
+#
 from gb_menu import menu, choice, action
 import time
 import sys
@@ -146,7 +150,7 @@ toggle_seconds_action = action.Action(function=toggle_seconds)
 toggle_seconds_choice = choice.Choice(key='7', text='Toggle seconds [{}]'.format(SHOW_SECONDS), action=toggle_seconds_action)
 util_menu.add_choice(toggle_seconds_choice)
 
-cancel_action = action.Action(function=type(None))
+cancel_action = action.Action()
 cancel_choice = choice.Choice(key='8', text='Cancel', action=cancel_action)
 util_menu.add_choice(cancel_choice)
 
