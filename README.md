@@ -28,8 +28,7 @@ pip install gb-menu
 from gb_menu import menu, choice, action
 
 main_menu = menu.Menu()
-cont_action = action.Action()
-cont_choice = choice.Choice(key='c', text='Continue', action=cont_action)
+cont_choice = choice.Choice(key='c', text='Continue')
 main_menu.add_choice(cont_choice)
 quit_action = action.Action(function=exit)
 quit_choice = choice.Choice(key='q', text='Quit', action=quit_action)
