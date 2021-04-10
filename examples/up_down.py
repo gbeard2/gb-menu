@@ -2,7 +2,7 @@
 # This file is subject to the terms and conditions defined in
 # file 'LICENSE', which is part of this source code package.
 #
-from gb_menu import menu, choice, action
+from gb_menu import menu, choice, action, style
 import sys
 
 X = 0
@@ -24,17 +24,17 @@ def display():
 
 
 # Initialize an empty Menu
-main_menu = menu.Menu()
+main_menu = menu.Menu(style.DEFAULT)
 
 # Create an Action which calls the increment function
 up_action = action.Action(function=increment)
 # Create a Choice for an input of '1' with the behavior of the above action
-up_choice = choice.Choice(key='1', text='X + 1', action=up_action)
+up_choice = choice.Choice(text='X + 1', action=up_action)
 # Add the Choice to the Menu
 main_menu.add_choice(up_choice)
 
 down_action = action.Action(function=decrement)
-down_choice = choice.Choice(key='2', text='X - 1', action=down_action)
+down_choice = choice.Choice(text='X - 1', action=down_action)
 main_menu.add_choice(down_choice)
 
 quit_action = action.Action(function=sys.exit)

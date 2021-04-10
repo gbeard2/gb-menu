@@ -3,7 +3,7 @@
 # file 'LICENSE', which is part of this source code package.
 #
 class Choice:
-    def __init__(self, key, text, action=None):
+    def __init__(self, text, key=None, action=None):
         self.key = key
         self.text = text
         self.action = action

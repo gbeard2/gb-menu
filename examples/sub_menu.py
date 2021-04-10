@@ -2,7 +2,7 @@
 # This file is subject to the terms and conditions defined in
 # file 'LICENSE', which is part of this source code package.
 #
-from gb_menu import menu, choice, action
+from gb_menu import menu, choice, action, style
 import time
 import sys
 
@@ -101,18 +101,18 @@ def display():
     main_menu.header = main_menu.header.strip()
 
 
-main_menu = menu.Menu()
+main_menu = menu.Menu(style.DEFAULT)
 # Create a second menu, this will be nested in the main menu
-util_menu = menu.Menu(header='\nUtilities')
+util_menu = menu.Menu(style.Style(header='\nUtilities'))
 
 # See examples/up_down.py for a description of creating choices and actions
 update_action = action.Action(function=update_time)
-update_choice = choice.Choice(key='1', text='Update time', action=update_action)
+update_choice = choice.Choice(text='Update time', action=update_action)
 main_menu.add_choice(update_choice)
 
 # Setting the function as another menu's show function is how menus can be "nested"
 switch_menu_action = action.Action(function=util_menu.show)
-switch_menu_choice = choice.Choice(key='2', text='Utilities', action=switch_menu_action)
+switch_menu_choice = choice.Choice(text='Utilities', action=switch_menu_action)
 main_menu.add_choice(switch_menu_choice)
 
 quit_action = action.Action(function=sys.exit)
@@ -123,34 +123,34 @@ disp_action = action.Action(function=display)
 main_menu.on_show = disp_action
 
 toggle_weekday_action = action.Action(function=toggle_weekday)
-toggle_weekday_choice = choice.Choice(key='1', text='Toggle weekday [{}]'.format(SHOW_WEEKDAY), action=toggle_weekday_action)
+toggle_weekday_choice = choice.Choice(text='Toggle weekday [{}]'.format(SHOW_WEEKDAY), action=toggle_weekday_action)
 util_menu.add_choice(toggle_weekday_choice)
 
 toggle_month_action = action.Action(function=toggle_month)
-toggle_month_choice = choice.Choice(key='2', text='Toggle month [{}]'.format(SHOW_MONTH), action=toggle_month_action)
+toggle_month_choice = choice.Choice(text='Toggle month [{}]'.format(SHOW_MONTH), action=toggle_month_action)
 util_menu.add_choice(toggle_month_choice)
 
 toggle_day_action = action.Action(function=toggle_day)
-toggle_day_choice = choice.Choice(key='3', text='Toggle day [{}]'.format(SHOW_DAY), action=toggle_day_action)
+toggle_day_choice = choice.Choice(text='Toggle day [{}]'.format(SHOW_DAY), action=toggle_day_action)
 util_menu.add_choice(toggle_day_choice)
 
 toggle_year_action = action.Action(function=toggle_year)
-toggle_year_choice = choice.Choice(key='4', text='Toggle year [{}]'.format(SHOW_YEAR), action=toggle_year_action)
+toggle_year_choice = choice.Choice(text='Toggle year [{}]'.format(SHOW_YEAR), action=toggle_year_action)
 util_menu.add_choice(toggle_year_choice)
 
 toggle_hours_action = action.Action(function=toggle_hours)
-toggle_hours_choice = choice.Choice(key='5', text='Toggle hours [{}]'.format(SHOW_HOURS), action=toggle_hours_action)
+toggle_hours_choice = choice.Choice(text='Toggle hours [{}]'.format(SHOW_HOURS), action=toggle_hours_action)
 util_menu.add_choice(toggle_hours_choice)
 
 toggle_minutes_action = action.Action(function=toggle_minutes)
-toggle_minutes_choice = choice.Choice(key='6', text='Toggle minutes [{}]'.format(SHOW_MINUTES), action=toggle_minutes_action)
+toggle_minutes_choice = choice.Choice(text='Toggle minutes [{}]'.format(SHOW_MINUTES), action=toggle_minutes_action)
 util_menu.add_choice(toggle_minutes_choice)
 
 toggle_seconds_action = action.Action(function=toggle_seconds)
-toggle_seconds_choice = choice.Choice(key='7', text='Toggle seconds [{}]'.format(SHOW_SECONDS), action=toggle_seconds_action)
+toggle_seconds_choice = choice.Choice(text='Toggle seconds [{}]'.format(SHOW_SECONDS), action=toggle_seconds_action)
 util_menu.add_choice(toggle_seconds_choice)
 
-cancel_choice = choice.Choice(key='8', text='Cancel')
+cancel_choice = choice.Choice(text='Cancel')
 util_menu.add_choice(cancel_choice)
 
 update_choices_action = action.Action(function=update_choices)
