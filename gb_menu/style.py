@@ -12,7 +12,7 @@ ALPHABETIC = {'A': False, 'B': False, 'C': False, 'D': False, 'E': False, 'F': F
 
 
 class Style:
-    def __init__(self, header=None, key_type='numeric', custom_keys=None, key_sep=':'):
+    def __init__(self, header=None, key_type='numeric', custom_keys=None, key_sep=': '):
         self.header = header
         self.key_sep = key_sep
 
