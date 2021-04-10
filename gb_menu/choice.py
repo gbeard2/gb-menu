@@ -11,4 +11,4 @@ class Choice:
     def execute(self):
         if self.action is not None:
             if self.action.function is not None:
-                self.action.function(**self.action.args)
+                return self.action.function(**self.action.args)

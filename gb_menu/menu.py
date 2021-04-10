@@ -56,10 +56,11 @@ class Menu:
         self.textboxes -= 1
 
     def show(self):
+        return_values = dict()
         self.cursor_pos = 0
         if self.on_show is not None:
             if self.on_show.function is not None:
-                self.on_show.function(**self.on_show.args)
+                return_values['on_show'] = self.on_show.function(**self.on_show.args)
 
         if self.header is not None:
             print(self.header)
@@ -93,14 +94,16 @@ class Menu:
 
         sel = input(self.input_text)
         try:
-            self.choices[sel].execute()
+            return_values[self.choices[sel].text] = self.choices[sel].execute()
         except KeyError:
             print(self.invalid_choice_text)
             if self.on_invalid_choice is not None:
                 if self.on_invalid_choice.function is not None:
-                    self.on_invalid_choice.function(**self.on_show.args)
+                    return_values['on_invalid_choice'] = self.on_invalid_choice.function(**self.on_show.args)
 
         if self.textboxes is not None:
             for textbox in self.textboxes.values():
                 if textbox.update_on_show:
                     textbox.update()
+
+        return return_values
