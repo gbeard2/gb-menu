@@ -29,16 +29,16 @@ main_menu = menu.Menu(style.DEFAULT)
 # Create an Action which calls the increment function
 up_action = action.Action(function=increment)
 # Create a Choice for an input of '1' with the behavior of the above action
-up_choice = choice.Choice(text='X + 1', action=up_action)
+up_choice = choice.Choice(text='X + 1', action=up_action, pos=[1, 1])
 # Add the Choice to the Menu
 main_menu.add_choice(up_choice)
 
 down_action = action.Action(function=decrement)
-down_choice = choice.Choice(text='X - 1', action=down_action)
+down_choice = choice.Choice(text='X - 1', action=down_action, pos=[2, 1])
 main_menu.add_choice(down_choice)
 
 quit_action = action.Action(function=sys.exit)
-quit_choice = choice.Choice(key='q', text='Quit', action=quit_action)
+quit_choice = choice.Choice(key='q', text='Quit', action=quit_action, pos=[3, 1])
 main_menu.add_choice(quit_choice)
 
 # Create an Action to allow the Menu to display the value of X

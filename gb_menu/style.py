@@ -12,9 +12,16 @@ ALPHABETIC = {'A': False, 'B': False, 'C': False, 'D': False, 'E': False, 'F': F
 
 
 class Style:
-    def __init__(self, header=None, key_type='numeric', custom_keys=None, key_sep=': '):
+    def __init__(self, header=None, key_type='numeric', custom_keys=None, key_sep=': ', menu_size=None, col_spacing=5, col_sep='|'):
+        if menu_size is None:
+            self.menu_size = [5, 1]
+        else:
+            self.menu_size = menu_size
+
         self.header = header
         self.key_sep = key_sep
+        self.col_spacing = ' ' * int((col_spacing - len(col_sep))/2)
+        self.col_sep = col_sep
 
         if key_type == 'alphabetic_upper':
             self.keys = ALPHABETIC.copy()

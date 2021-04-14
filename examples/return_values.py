@@ -8,11 +8,11 @@ import random
 
 main_menu = menu.Menu(style.DEFAULT)
 gen_random_action = action.Action(function=random.randint, args={'a': 0, 'b': 10})
-gen_random_choice = choice.Choice(text='Generate random number', action=gen_random_action)
+gen_random_choice = choice.Choice(text='Generate random number', action=gen_random_action, pos=[1, 1])
 main_menu.add_choice(gen_random_choice)
 
 quit_action = action.Action(function=sys.exit)
-quit_choice = choice.Choice(key='q', text='Quit', action=quit_action)
+quit_choice = choice.Choice(key='q', text='Quit', action=quit_action, pos=[2, 1])
 main_menu.add_choice(quit_choice)
 
 
